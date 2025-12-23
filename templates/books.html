@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+
+        h2 { color: #333; }
+
+        ul { list-style: none; padding: 0; }
+
+        li {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .book-info {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background: #0056bf;
+        }
+
+        .nav {
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>📚 Available Books</h2>
+
+<ul>
+{% for book in books %}
+    <li>
+        <div class="book-info">
+            <strong>{{ book[1] }}</strong><br>
+            Author: {{ book[2] }}<br>
+            Available Copies: {{ book[3] }}
+        </div>
+
+        <a class="btn" href="/borrow/{{ book[0] }}">Borrow</a>
+    </li>
+{% endfor %}
+</ul>
+
+<div class="nav">
+    <a class="btn" href="/add-book">➕ Add Book</a>
+    <a class="btn" href="/borrowed">View Borrowed Books</a>
+</div>
+
+</body>
+</html>

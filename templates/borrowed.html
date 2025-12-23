@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrowed Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+
+        h2 { color: #333; }
+
+        ul { list-style: none; padding: 0; }
+
+        li {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .borrow-info {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #28a745;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+
+        .returned {
+            color: gray;
+            font-style: italic;
+        }
+
+        .back {
+            margin-top: 25px;
+            display: inline-block;
+            background: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<h2>📖 Borrowed Books</h2>
+
+<ul>
+{% for b in borrows %}
+    <li>
+        <div class="borrow-info">
+            <strong>{{ b[1] }}</strong><br>
+            Due Date: {{ b[2] }}
+        </div>
+
+        {% if not b[3] %}
+            <a class="btn" href="/return/{{ b[0] }}">Return</a>
+        {% else %}
+            <span class="returned">Returned</span>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+<a class="btn back" href="/">⬅ Back to Books</a>
+
+</body>
+</html>
