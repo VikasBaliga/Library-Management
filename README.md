@@ -1,6 +1,6 @@
 # Library Book Borrowing System
 
-A simple beginner-friendly **Library Management System** built using **Python and Flask**.  
+It is a library management system built using Python and Flask
 The application allows users to view books, borrow and return them with membership limits, track due dates, and calculate fines for late returns.
 
 ---
